@@ -1,0 +1,90 @@
+using UnityEngine;
+
+public class _1_DebugLog: MonoBehaviour
+{
+    private void Awake()
+    {   //Awake her türlü çalışır
+        Debug.Log("Awake çalıştı");
+    }
+
+    void Start()
+    {
+        Debug.Log("Start çalıştı");
+    }
+
+    void Update()
+    {
+        
+    }
+}
+//-------------------------------------
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class _2_Degiskenler : MonoBehaviour
+{
+    private string _name;
+    private int _number = 20;
+    public float numberfloat = 1.2f;
+    void Start()
+    {
+        Debug.Log(_name); //null
+        _name = "Degiskenler";
+        Debug.Log(_name); //Degiskenler
+
+        Debug.Log(_number); //20
+        Debug.Log(numberfloat); //1.2
+    }
+}
+//------------------------------------------
+using UnityEngine;
+using UnityEngine.UI;
+
+public class _2_Degiskenler_UI : MonoBehaviour
+{
+    private string _name;
+    public float numberfloat = 1.2f;
+
+    public Text text;
+    void Start()
+    {
+        text = GameObject.FindAnyObjectByType<Text>();
+        if (text != null)
+        {
+            text.text = _name + " " + numberfloat;
+            //_name boş string atıyor null hatası vermiyor
+        }
+        else Debug.LogWarning("UI text atanmamış");
+    }
+}
+//------------------------------------------
+using UnityEngine;
+
+public class _3_MatematikselOperatorler : MonoBehaviour
+{
+    //[SerializeField]
+    public int intsayi1 = 12;
+    public int intsayi2 = 5;
+    public int intbolme;
+    public int intKalan;
+    public int intArttir1 = 14;
+
+    public float floatsayi1 = 5;
+    public float floatsayi2 = 7;
+    public float floatbolme;
+    public string floatbolmeString;
+    void Start()
+    {
+        
+        intbolme = intsayi1 / intsayi2;
+        intKalan = intsayi1 % intsayi2;
+
+        intArttir1++;//15
+
+        floatbolme = floatsayi1 / floatsayi2;               //0.7142857
+        floatbolmeString = floatbolme.ToString("0.00");     //0.71
+    }
+}
+//------------------------------------------
+
